@@ -1,0 +1,28 @@
+# Copy this file and record the actual values used for each run.
+experiment:
+  name: gnn_dqn_baseline_comparison
+  random_seed: 42
+  dataset: ACN-Data
+  split:
+    strategy: chronological
+    train_end: "YYYY-MM-DD"
+    validation_end: "YYYY-MM-DD"
+    test_end: "YYYY-MM-DD"
+
+simulation:
+  charger_power_kw: 7.2
+  time_step_minutes: 5
+  charger_count: null # Set from the experiment configuration; do not guess.
+
+policy:
+  baseline: FCFS
+  learned_policy: GNN-DQN
+  checkpoint: null
+
+reporting:
+  metrics:
+    - mean_wait_minutes
+    - median_wait_minutes
+    - completion_rate
+    - charger_utilization
+    - peak_load_kw
